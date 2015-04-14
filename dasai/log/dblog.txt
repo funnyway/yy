@@ -1,0 +1,49 @@
+2015-04-14 15:45:13 查询 select cid,account,password,cname from  user where account='ssss'
+2015-04-14 15:45:13 Query Error: select cid,account,password,cname from  user where account='ssss'
+Unknown column 'cid' in 'field list'
+2015-04-14 15:45:13 释放结果集
+2015-04-14 15:45:13 完成整个查询任务,所用时间为0.003000020980835
+2015-04-14 15:48:15 释放结果集
+2015-04-14 15:48:15 完成整个查询任务,所用时间为0.0020010471343994
+2015-04-14 15:48:39 释放结果集
+2015-04-14 15:48:39 完成整个查询任务,所用时间为0.002000093460083
+2015-04-14 15:48:39 释放结果集
+2015-04-14 15:48:39 完成整个查询任务,所用时间为0.0010001659393311
+2015-04-14 15:49:58 查询 select cid,account,password,cname from  user where account='admin'
+2015-04-14 15:49:58 Query Error: select cid,account,password,cname from  user where account='admin'
+Unknown column 'cid' in 'field list'
+2015-04-14 15:49:58 释放结果集
+2015-04-14 15:49:58 完成整个查询任务,所用时间为0.0039999485015869
+2015-04-14 15:50:10 查询 select cid,account,password,cname from  user where account='admin'
+2015-04-14 15:50:10 Query Error: select cid,account,password,cname from  user where account='admin'
+Unknown column 'cid' in 'field list'
+2015-04-14 15:50:10 释放结果集
+2015-04-14 15:50:10 完成整个查询任务,所用时间为0.0030009746551514
+2015-04-14 15:50:49 查询 select id,account,password,name from  user where account='admin'
+2015-04-14 15:50:49 获取一条记录 select id,account,password,name from  user where account='admin'
+2015-04-14 15:50:49 释放结果集
+2015-04-14 15:50:49 完成整个查询任务,所用时间为0.003000020980835
+2015-04-14 15:53:30 查询 select id,account,password,name from  user where account='admin'
+2015-04-14 15:53:30 获取一条记录 select id,account,password,name from  user where account='admin'
+2015-04-14 15:53:30 释放结果集
+2015-04-14 15:53:30 完成整个查询任务,所用时间为0.0019998550415039
+2015-04-14 15:53:30 查询 select id,account,password,name from  user where account='admin'
+2015-04-14 15:53:30 获取一条记录 select id,account,password,name from  user where account='admin'
+2015-04-14 15:53:30 释放结果集
+2015-04-14 15:53:30 完成整个查询任务,所用时间为0.0040009021759033
+2015-04-14 15:54:38 查询 select id,account,password,name from  user where account='admin'
+2015-04-14 15:54:38 获取一条记录 select id,account,password,name from  user where account='admin'
+2015-04-14 15:54:38 释放结果集
+2015-04-14 15:54:38 完成整个查询任务,所用时间为0.022001028060913
+2015-04-14 15:54:45 查询 select id,account,password,name from  user where account='admin'
+2015-04-14 15:54:45 获取一条记录 select id,account,password,name from  user where account='admin'
+2015-04-14 15:54:45 释放结果集
+2015-04-14 15:54:45 完成整个查询任务,所用时间为0.002000093460083
+2015-04-14 15:54:56 查询 select id,account,password,name from  user where account='admin'
+2015-04-14 15:54:56 获取一条记录 select id,account,password,name from  user where account='admin'
+2015-04-14 15:54:56 释放结果集
+2015-04-14 15:54:56 完成整个查询任务,所用时间为0.003000020980835
+2015-04-14 15:58:19 查询 select id,account,password,name from  user where account='admin'
+2015-04-14 15:58:19 获取一条记录 select id,account,password,name from  user where account='admin'
+2015-04-14 15:58:19 释放结果集
+2015-04-14 15:58:19 完成整个查询任务,所用时间为0.0010001659393311

@@ -1,0 +1,272 @@
+{#qishi_company_show set="列表名:company,企业ID:GET[id],企业介绍长度:150"#}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+<title>{#$company.companyname#} - {#$QISHI.site_name#}</title>
+<meta name="description" content="{#$company.description#}},公司简介">
+<meta name="keywords" content="{#$company.companyname#},公司简介">
+<meta name="author" content="骑士CMS" />
+<meta name="copyright" content="74cms.com" />
+<link rel="shortcut icon" href="{#$QISHI.main_domain#}favicon.ico" />
+<link href="{#$QISHI.site_template#}css/common.css" rel="stylesheet" type="text/css" />
+<link href="{#$user_tpl#}css/css.css" rel="stylesheet" type="text/css" />
+<script src="{#$QISHI.site_template#}js/jquery.js" type="text/javascript" language="javascript"></script>
+<script src="{#$QISHI.site_template#}js/jquery.dialog.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=np21m1qLWsuF4gGwzSwYMpC4"></script>
+<SCRIPT TYPE="text/javascript">
+$(document).ready(function(){
+	$(".check_full_map").click(function(){
+		var map_x = $(this).attr("map_x");
+		var map_y = $(this).attr("map_y"); 
+		var map_zoom = $(this).attr("map_zoom"); 
+		var companyname = $(this).attr("companyname"); 
+		var address = $(this).attr("address"); 
+		dialog("完整地图","url:{#$QISHI.website_dir#}plus/ajax_com_map.php?act=company_map&map_x="+map_x+"&map_y="+map_y+"&map_zoom="+map_zoom+"&companyname="+companyname+"&address="+address,"660px","auto","","");
+	});
+	var company_id="{#$company.id#}";
+	var tsTimeStamp= new Date().getTime();
+	$.get("{#$QISHI.website_dir#}plus/ajax_contact.php", { "id": company_id,"time":tsTimeStamp,"act":"company_contact"},
+		function (data,textStatus)
+		 {			
+			$("#company_contact").html(data);
+		 }
+	);
+});
+</SCRIPT>
+</head>
+<body>
+{#include file="header.htm"#}
+	<!-- 当前位置 -->
+	<div class="page_location link_bk">
+		当前位置：<a href="{#$QISHI.website_dir#}">首页</a>><a href="{#"QS_jobs"|qishi_url#}">招聘信息</a>>{#$company.companyname#}
+	</div>
+	<!-- 主体内容 -->
+	<div class="container link_bk">
+		<div class="left_area">
+			<div class="com_title">
+				<div class="logo_img"><img src="{#$company.logo#}" width="200" height="70" /></div>
+				<div class="title_txt">
+					<h2>{#$company.companyname#}
+					{#if $company.audit=="1"#}
+						<img title="企业已认证" src="{#$QISHI.site_template#}images/yesyan.jpg" border="0" />
+					{#else#}
+						<img title="企业未认证" src="{#$QISHI.site_template#}images/noyan.jpg" border="0" />
+					{#/if#}
+					</h2>
+					<p>{#$company.address#}</p>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<div class="com_info">
+				<div class="com_nav">
+					<ul>
+						<li class="active"><a href="{#"QS_companyshow,id:"|cat:$company.id|qishi_url#}">公司介绍</a></li>
+						<li><a href="{#"QS_companyjobs,id:"|cat:$company.id|qishi_url#}">招聘职位</a></li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+
+				<div class="com_container">
+					<!-- 公司介绍 -->
+					<div class="com_txt">
+						<p>{#$company.description|nl2br#}<a id="comcondesc" style="color:#0180CF" href="javascript:;">{#if $company.ishow == 1#}[详细]{#/if#}</a></p>
+						<p style="display:none">{#$company.contents|nl2br#}&nbsp;<a id="comcontents" style="color:#0180CF" href="javascript:;">[收起]</a></p>
+					</div>
+					<script type="text/javascript">
+						$("#comcondesc").click(function() {
+							$(this).parent().hide();
+							$("#comcontents").parent().show();
+						});
+						$("#comcontents").click(function() {
+							$(this).parent().hide();
+							$("#comcondesc").parent().show();
+						});
+					</script>
+					<!-- 招聘职位 -->
+					{#qishi_jobs_list set="列表名:jobs,填补字符:...,职位名长度:10,分页显示:1,显示数目:5,列表页:QS_companyjobs,描述长度:68,会员UID:"|cat:$company.uid#}
+					{#if $jobs#}
+					<div class="com_job">
+						<table cellspacing="0" cellpadding="0" border="0" width="100%">
+							<tbody>
+								<tr>
+									<td bgcolor="#f5f5f5" class="listtit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;招聘职位</td>
+									<td bgcolor="#f5f5f5" align="center" class="listtit">学历要求</td>
+									<td bgcolor="#f5f5f5" align="center" class="listtit">工作经验</td>
+									<td bgcolor="#f5f5f5" align="center" class="listtit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作地点&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td bgcolor="#f5f5f5" align="center" class="listtit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;薪资待遇</td>
+								</tr>
+								{#foreach from=$jobs item=list#}
+								<tr>
+									<td class="list" style="width:150px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color:#0180CF" target="_blank" href="{#$list.jobs_url#}" title="{#$list.jobs_name_#}">{#$list.jobs_name#}</a></td>
+									<td align="center" class="list">{#$list.education_cn#}</td>
+									<td align="center" class="list">{#$list.experience_cn#}</td>
+									<td align="center" class="list">{#$list.district_cn#}</td>
+									<td align="center" class="list">{#$list.wage_cn#}</td>
+								</tr>
+								{#/foreach#}
+							</tbody>
+						</table>
+						<div style="padding:10px 20px 15px 10px;text-align:right;"><a style="color:#0180CF" href="{#"QS_companyjobs,id:"|cat:$company.id|qishi_url#}">更多职位&gt;&gt;</a></div>
+					</div>
+					{#/if#}
+					<!-- 公司地图标注 -->
+					<style>
+						.map_l{width:590px;float: left;}
+						.map_r{width:80px;float: right;padding-left: 20px;}
+						.map_r li{margin:5px 0;}
+						.map_r li label input {vertical-align:middle;}
+						.map_bottom {margin:10px 0;}
+						.map_bottom h4{display: inline-block;margin-right: 10px;}
+						.map_bottom span {display: inline-block;margin-right: 10px;}
+						.map_bottom .addr_inpt{width:180px;}
+						.map_bottom span .bus_submit{cursor: pointer;margin-left:5px;}
+					</style>
+					{#if $company.map_open=="1" && $company.map_x && $company.map_y#}
+						<div class="company_map">
+							<div class="map_l">
+								<a target="_blank" href="http://api.map.baidu.com/marker?location={#$company.map_y#},{#$company.map_x#}&title={#$company.companyname#}&content={#$company.address#}&output=html" class="goToBdMap BMap_noprint anchorTR" style="position: absolute; z-index: 10;margin:10px;background-color: #fff;padding:2px;">查看完整地图（含公交查询）</a>
+								<div style="width:100%;height:300px;border:1px #CCCCCC solid; margin:0 auto;" id="map"></div>
+							</div>
+							<div class="map_r">
+								<b>周边查询</b>
+								<ul>
+									<li>
+										<label for="hotel"><input type="checkbox" value="酒店" id="hotel"  class="serch"/>&nbsp;酒店</label>
+									</li>
+									<li>
+										<label for="catering"><input type="checkbox" value="餐饮" id="catering"  class="serch"/>&nbsp;餐饮</label>
+									</li>
+									<li>
+										<label for="supermarket"><input type="checkbox" value="超市" id="supermarket" class="serch"/>&nbsp;超市</label>
+									</li>
+									<li>
+										<label for="bank"><input type="checkbox" value="银行" id="bank" class="serch"/>&nbsp;银行</label>
+									</li>
+									<li>
+										<label for="hospital"><input type="checkbox" value="医院" id="hospital" class="serch"/>&nbsp;医院</label>
+									</li>
+									<li>
+										<label for="scholl"><input type="checkbox" value="学校" id="scholl" class="serch"/>&nbsp;学校</label>
+									</li>
+									<li>
+										<label for="bus"><input type="checkbox" value="公交" id="bus" class="serch"/>&nbsp;公交</label>
+									</li>
+								</ul>
+							</div>
+							<div class="clear"></div>
+							<div class="map_bottom">
+								<h4>线路查询</h4>
+								<span>起点：<input type="text" name="start" value="" class="addr_inpt"/></span>
+								<span>终点：<input type="text" name="end" value="{#$company.address#}" class="addr_inpt" readonly/></span>
+								<span><input type="button" value="公交查询" class="bus_submit"/></span>
+							</div>
+							<div id="r-result" style="margin-bottom: 10px;"></div>
+						</div>
+						
+							<script type="text/javascript">
+								var map = new BMap.Map("map");
+								var point = new BMap.Point({#$company.map_x#}, {#$company.map_y#});
+								map.centerAndZoom(point, {#$company.map_zoom#});
+
+								// var opts = {type: BMAP_NAVIGATION_CONTROL_SMALL,anchor: BMAP_ANCHOR_TOP_RIGHT}
+								// map.addControl(new BMap.NavigationControl(opts)); //添加鱼骨
+								// map.enableScrollWheelZoom();//启用滚轮放大缩小，默认禁用。
+								// 创建标注
+								var qs_marker = new BMap.Marker(point);           
+								map.addOverlay(qs_marker);
+								// 关键字检索
+								$(".serch").click(function(){
+										var search_key = "["+getSelectVal()+"]";
+										if(search_key=="[]"){
+											map.centerAndZoom(point, {#$company.map_zoom#});
+										}else{
+											map.centerAndZoom(new BMap.Point({#$company.map_x#}, {#$company.map_y#}),11);
+											var local = new BMap.LocalSearch(map, {
+												renderOptions:{map: map},
+												pageCapacity:5
+											});
+											local.searchInBounds(search_key, map.getBounds());
+										}
+								});
+								// 获取 关键字方法
+								function getSelectVal() {
+									var a_cn = new Array();
+									$(":checkbox[checked][class='serch']").each(function(index, el) {
+										var checkText = $(this).val();
+										a_cn[index]='"'+checkText+'"';
+									});
+									return a_cn.join(",");
+								}
+								// 公交查询
+								$(".bus_submit").click(function() {
+									var start =$("input[name=start]").val();
+									var end =$("input[name=end]").val();
+									if(start!="" && end!=""){
+										var transit = new BMap.TransitRoute(map, {
+											renderOptions: {map: map, panel: "r-result"}
+										});
+										transit.search(""+start+"", ""+end+"");
+									}else{
+										alert("输入起点！");
+									}
+								});
+								
+							</script>
+					{#/if#}
+				</div>
+			</div>
+		</div>
+		<!-- 右边内容 -->
+		<div class="right_area">
+			
+			<div class="right_box">
+				<div class="title_box">
+					<h5>企业名片</h5>
+				</div>
+				<div class="list">
+					<ul>
+						<li>公司性质：{#$company.nature_cn#}</li>
+						<li>所属行业：{#$company.trade_cn#}</li>
+						<li>公司规模：{#$company.scale_cn#}</li>
+						<li>所在地区：{#$company.district_cn#}</li>
+						{#if $company.website#}
+						<li>公司网站：<a target="_blank" href="{#$company.website#}">{#$company.website#}</a></li>
+						{#/if#}
+					</ul>
+				</div>
+			</div>
+			<div class="right_box">
+				<div class="title_box">
+					<h5>公司地址</h5>
+				</div>
+				<div class="list">
+					<div class="map">
+						{#if $company.address#}
+						<p>{#$company.address#}</p>
+						{#/if#}
+					</div>
+					
+				</div>
+			</div>
+			<div class="right_box">
+				<div class="title_box">
+					<h5>联系方式</h5>
+				</div>
+				<div class="list" id="company_contact">
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<!-- 主体内容 结束 -->
+<script src="{#$QISHI.site_template#}js/swipe.js"></script>
+<script>
+	window.mySwipe = Swipe(document.getElementById('slider'), {
+		auto:3000,
+		speed:400,
+		continuous: true
+	});
+</script>
+{#include file="footer.htm"#}
+</body>
+</html>

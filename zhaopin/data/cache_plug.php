@@ -1,0 +1,19 @@
+<?php
+$data = array (
+  'simple' => 
+  array (
+    'plug_name' => 'Î¢ÉÌÈ¦',
+    'p_install' => '2',
+  ),
+  'hrtools' => 
+  array (
+    'plug_name' => 'hr¹¤¾ßÏä',
+    'p_install' => '2',
+  ),
+  'yellowpage' => 
+  array (
+    'plug_name' => '»ÆÒ³',
+    'p_install' => '2',
+  ),
+);
+?>
