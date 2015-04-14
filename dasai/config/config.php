@@ -1,9 +1,9 @@
 <?php
 //数据库设置
 $db_config = array();
-$db_config["hostname"] = "localhost"; //服务器地址
+$db_config["hostname"] = "218.245.5.75"; //服务器地址
 $db_config["username"] = "root"; //数据库用户名
-$db_config["password"] = "123456"; //数据库密码
+$db_config["password"] = "hdjs_2013"; //数据库密码
 $db_config["database"] = "xueshi"; //数据库名称
 $db_config["charset"] = "utf8";//数据库编码
 $db_config["pconnect"] = 1;//开启持久连接
