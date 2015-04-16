@@ -75,6 +75,16 @@ $(".userliststyle").hover(
 <div class="meun1">
   	<div class="meun2">
 		<div class="meunbox">
+		  <div class="tit"><div class="t i1">我的大赛</div></div>
+		  	<div class="linktxt">
+				<ul>
+				<li{#if $smarty.get.act=="baoming"#} class="h"{#/if#}><a href="dasai.php?act=baoming">我要报名</a></li>
+				<li{#if $smarty.get.act=="photo"#} class="h"{#/if#}><a href="dasai.php?act=photo">上传照片</a></li>
+				<li{#if $smarty.get.act=="dasaixinxi"#} class="h"{#/if#}><a href="personal_resume.php?act=resume_list">大赛信息</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="meunbox">
 		  <div class="tit"><div class="t i1">简历管理</div></div>
 		  	<div class="linktxt">
 				<ul>

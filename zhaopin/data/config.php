@@ -11,9 +11,9 @@ $pre    = "xueshi_";
 
 $QS_cookiedomain = '';
 
-$QS_cookiepath =  "/zhaopin/";
+$QS_cookiepath =  "/";
 
-$QS_pwdhash = "XyfTM-2e7RzaZ@hF";
+$QS_pwdhash = '';//为方便和别的应用接入。此项设置为空字符
 
 define('QISHI_CHARSET','gb2312');
 

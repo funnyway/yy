@@ -199,6 +199,13 @@ function get_userprofile($uid)
 	$sql = "select * from ".table('members_info')." where uid = ".intval($uid)." LIMIT 1";
 	return $db->getone($sql);
 }
+function get_student_info($uid)
+{
+	global $db;
+	$uid=intval($uid);
+	$sql = "select * from ".table('dasai_student')." where uid ='{$uid}' LIMIT 1";
+	return $db->getone($sql);
+}
 function refresh_resume($pid,$uid)
 {
 	global $db;

@@ -827,6 +827,7 @@ function get_userprofile($uid)
 	$sql = "select * from ".table('members_info')." where uid ='{$uid}' LIMIT 1";
 	return $db->getone($sql);
 }
+
 function set_user_status($status,$uid)
 {
 	global $db;

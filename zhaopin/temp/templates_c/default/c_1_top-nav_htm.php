@@ -1,4 +1,4 @@
-<?php /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2015-04-13 13:36 ?D1迆㊣那℅?那㊣?? */ ?>
+<?php /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2015-04-15 10:39 ?D1迆㊣那℅?那㊣?? */ ?>
 <a href="<?php echo $this->_vars['QISHI']['main_domain']; ?>
 mobile/" class="mphone">忒儂け耋</a>
 <a href="<?php echo $this->_vars['QISHI']['website_dir']; ?>

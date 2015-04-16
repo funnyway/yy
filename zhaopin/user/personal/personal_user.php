@@ -52,24 +52,24 @@ elseif ($act=='userprofile_save')
 		}
 		unset($_SESSION['verify_email'],$_SESSION['email_rand']);
 	}
-	if($user["mobile_audit"]==0){
-		$setsqlarr['phone']=trim($_POST['mobile'])?trim($_POST['mobile']):showmsg('请填写手机号！',1);
-		$mobile_verifycode=trim($_POST['mobile_verifycode']);
-		if($mobile_verifycode){
-			if (empty($_SESSION['mobile_rand']) || $mobile_verifycode<>$_SESSION['mobile_rand'])
-			{
-				showmsg("手机验证码错误",1);
-			}
-			else
-			{
-				$verifysqlarr['mobile'] = $setsqlarr['phone'];
-				$verifysqlarr['mobile_audit'] = 1;
-				updatetable(table('members'),$verifysqlarr," uid='{$setsqlarr['uid']}'");
-				unset($verifysqlarr);
-			}
-		}
-		unset($_SESSION['verify_mobile'],$_SESSION['mobile_rand']);
-	}
+// 	if($user["mobile_audit"]==0){
+// 		$setsqlarr['phone']=trim($_POST['mobile'])?trim($_POST['mobile']):showmsg('请填写手机号！',1);
+// 		$mobile_verifycode=trim($_POST['mobile_verifycode']);
+// 		if($mobile_verifycode){
+// 			if (empty($_SESSION['mobile_rand']) || $mobile_verifycode<>$_SESSION['mobile_rand'])
+// 			{
+// 				showmsg("手机验证码错误",1);
+// 			}
+// 			else
+// 			{
+// 				$verifysqlarr['mobile'] = $setsqlarr['phone'];
+// 				$verifysqlarr['mobile_audit'] = 1;
+// 				updatetable(table('members'),$verifysqlarr," uid='{$setsqlarr['uid']}'");
+// 				unset($verifysqlarr);
+// 			}
+// 		}
+// 		unset($_SESSION['verify_mobile'],$_SESSION['mobile_rand']);
+// 	}
 	
 	
 	$setsqlarr['realname']=trim($_POST['realname'])?trim($_POST['realname']):showmsg('请填写真实姓名！',1);

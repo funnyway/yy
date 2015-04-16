@@ -47,3 +47,7 @@ Unknown column 'cid' in 'field list'
 2015-04-14 15:58:19 获取一条记录 select id,account,password,name from  user where account='admin'
 2015-04-14 15:58:19 释放结果集
 2015-04-14 15:58:19 完成整个查询任务,所用时间为0.0010001659393311
+2015-04-14 17:51:22 查询 select id,account,password,name from  user where account='admin'
+2015-04-14 17:51:22 获取一条记录 select id,account,password,name from  user where account='admin'
+2015-04-14 17:51:22 释放结果集
+2015-04-14 17:51:22 完成整个查询任务,所用时间为0.28301596641541
