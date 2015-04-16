@@ -37,6 +37,10 @@ $(function(){
 			titleFont:{TitleFont_size:12,TitleFont_color:"#FFffff"},
 			titleBar:{titleBar_height:28,titleBar_bgColor:"#000000",titleBar_alpha:0.5},
 	});
+	$.get("/zhaopin/plus/ajax_user.php", {"act":"top_loginform"},
+		function (data,textStatus){			
+			$("#top_loginform").html(data);
+	});
 })
 </script>
 
@@ -44,7 +48,9 @@ $(function(){
 <body>
 <div class="topbg">
   <div class="top">
-    <div class="toptxt"><a href="../zhaopin/user/user_reg.php">注册</a> | <a href="../zhaopin/user/login.php">登录</a> </div>
+    <div class="toptxt">
+	<span id="top_loginform"></span>
+	<!--<a href="../zhaopin/user/user_reg.php">注册</a> | <a href="../zhaopin/user/login.php">登录</a>--> </div>
 	<div class="topewm">
 	  <p><img src="../images/index_r3_c16.jpg" /></p>
 	  <p>校园微社区</p>
