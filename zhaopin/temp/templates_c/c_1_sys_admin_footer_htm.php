@@ -1,7 +1,6 @@
-<?php /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2015-04-15 10:36 ?D1迆㊣那℅?那㊣?? */ ?>
+<?php /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2015-04-17 10:07 ?D1迆㊣那℅?那㊣?? */ ?>
 <div class="footer link_lan">
-Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span style="color: #FF3300">CMS</span></a> <?php echo $this->_vars['QISHI_VERSION']; ?>
-
+Powered by <a href="/" target="_blank"><span style="color:#009900">悝奀厙</span></a>
 </div>
 <div class="admin_frameset" >
   <div class="open_frame" title="�宦�" id="open_frame"></div>

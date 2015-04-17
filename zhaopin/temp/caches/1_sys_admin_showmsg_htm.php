@@ -72,7 +72,7 @@ function redirection()
 </script>
 
 <div class="footer link_lan">
-Powered by <a href="http://www.74cms.com" target="_blank"><span style="color:#009900">74</span><span style="color: #FF3300">CMS</span></a> 3.5.2.20150209
+Powered by <a href="/" target="_blank"><span style="color:#009900">Ñ§Ê±Íø</span></a>
 </div>
 <div class="admin_frameset" >
   <div class="open_frame" title="È«ÆÁ" id="open_frame"></div>

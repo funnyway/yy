@@ -32,7 +32,7 @@ function get_explain_category_one($id)
 function get_explain($offset, $perpage, $sql= '')
 {
 	global $db;
-	$limit=" LIMIT ".$offset.','.$perpage;
+	$limit=" LIMIT ".$offset.','.$perpage;return "SELECT e.*,c.categoryname FROM ".table('explain')." AS e ".$sql.$limit;
 	$result = $db->query("SELECT e.*,c.categoryname FROM ".table('explain')." AS e ".$sql.$limit);
 	while($row = $db->fetch_array($result)){
 	$tit_color = $row['tit_color'] ? "color:".$row['tit_color'].";" : '';

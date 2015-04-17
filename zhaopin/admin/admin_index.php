@@ -33,8 +33,8 @@ elseif($act=='left')
 elseif($act == 'main')
 {
 	get_userreg_30_days();
-	$install_warning=file_exists('../install')?"您还没有删除 install 文件夹，出于安全的考虑，我们建议您删除 install 文件夹。":null;
-	$update_warning=file_exists('../update')?"您还没有删除 update 文件夹，出于安全的考虑，我们建议您删除 update 文件夹。":null;
+	//$install_warning=file_exists('../install')?"您还没有删除 install 文件夹，出于安全的考虑，我们建议您删除 install 文件夹。":null;
+	//$update_warning=file_exists('../update')?"您还没有删除 update 文件夹，出于安全的考虑，我们建议您删除 update 文件夹。":null;
 	$admindir_warning=substr(ADMIN_ROOT_PATH,-7)=='/admin/'?"您的网站管理中心目录为 ./admin ，出于安全的考虑，我们建议您修改目录名。":null;
 	$admin_register_globals=ini_get('register_globals')?'您的php.ini中register_globals为On，强烈建议你设为Off，否则将会出现严重的安全隐患和数据错乱！':null;
 	$system_info = array();
@@ -52,7 +52,7 @@ elseif($act == 'main')
 	$smarty->assign('update_warning',$update_warning);
 	$smarty->assign('admindir_warning',$admindir_warning);
 	$smarty->assign('admin_register_globals',$admin_register_globals);
-	$smarty->assign('pageheader',"74CMS 管理中心 - 后台管理首页");
+	$smarty->assign('pageheader',"学时网招聘 - 后台管理首页");
 	$smarty->display('sys/admin_main.htm');
 }
 ?>

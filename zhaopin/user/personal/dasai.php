@@ -43,7 +43,6 @@ elseif ($act=='baoming_save')
 	$setsqlarr['residence_cn']=trim($_POST['residence_cn']);
 	$setsqlarr['education']=intval($_POST['education'])?intval($_POST['education']):showmsg('请选择学历',1);
 	$setsqlarr['education_cn']=trim($_POST['education_cn']);
-	$setsqlarr['experience']=intval($_POST['experience'])?intval($_POST['experience']):showmsg('请选择工作经验',1);
 	$setsqlarr['experience_cn']=trim($_POST['experience_cn']);
 	$setsqlarr['height']=intval($_POST['height']);
 	$setsqlarr['householdaddress']=trim($_POST['householdaddress']);
@@ -61,10 +60,13 @@ elseif ($act=='baoming_save')
 	$dasaisqlarr['shenfenzhenghao']=trim($_POST['shenfenzhenghao'])?trim($_POST['shenfenzhenghao']):showmsg('请填写身份证号！',1);
 	$dasaisqlarr['nation']=trim($_POST['nation'])?trim($_POST['nation']):showmsg('请填写民族！',1);
 	$dasaisqlarr['politics']=trim($_POST['politics'])?trim($_POST['politics']):showmsg('请填写政治面貌！',1);
+	$dasaisqlarr['degree']=trim($_POST['education_cn']);
 	$dasaisqlarr['school']=trim($_POST['school'])?trim($_POST['school']):showmsg('请填写毕业院校！',1);
 	$dasaisqlarr['major']=trim($_POST['major'])?trim($_POST['major']):showmsg('请填写专业！',1);
 	$dasaisqlarr['target_job']=trim($_POST['target_job'])?trim($_POST['target_job']):showmsg('请填写求职岗位！',1);
 	$dasaisqlarr['mobile']=trim($_POST['mobile'])?trim($_POST['mobile']):showmsg('请填写联系电话！',1);
+	$dasaisqlarr['qq']=trim($_POST['qq'])?trim($_POST['qq']):showmsg('请填写qq号码！',1);
+	$dasaisqlarr['email']=trim($_POST['email'])?trim($_POST['email']):showmsg('请填写邮箱！',1);
 	$dasaisqlarr['foreign_language_level']=trim($_POST['foreign_language_level'])?trim($_POST['foreign_language_level']):showmsg('请填写外语水平！',1);
 	$dasaisqlarr['computer_level']=trim($_POST['computer_level'])?trim($_POST['computer_level']):showmsg('请填写计算机水平！',1);
 	$dasaisqlarr['educations']=trim($_POST['educations'])?trim($_POST['educations']):showmsg('请填写教育背景！',1);
@@ -164,23 +166,12 @@ elseif ($act=='photo_save')
 	}
 }
 //会员登录日志
-elseif ($act=='login_log')
+elseif ($act=='download')
 {
 	require_once(QISHI_ROOT_PATH.'include/fun_user.php');
-	require_once(QISHI_ROOT_PATH.'include/page.class.php');
-	$uid = intval($_SESSION['uid']);
-	$smarty->assign('total',$db->get_total("SELECT COUNT(*) AS num FROM ".table('pms')." WHERE (msgfromuid='{$uid}' OR msgtouid='{$uid}') AND `new`='1'"));
-	$wheresql=" WHERE log_uid='{$_SESSION['uid']}' AND log_type='1001' ";
-	$perpage=15;
-	$total_sql="SELECT COUNT(*) AS num FROM ".table('members_log').$wheresql;
-	$total_val=$db->get_total($total_sql);
-	$page = new page(array('total'=>$total_val, 'perpage'=>$perpage));
-	$currenpage=$page->nowindex;
-	$offset=($currenpage-1)*$perpage;
-	$smarty->assign('loginlog',get_user_loginlog($offset, $perpage,$wheresql));
-	$smarty->assign('page',$page->show(3));
-	$smarty->assign('title','会员登录日志 - 企业会员中心 - '.$_CFG['site_name']);
-	$smarty->display('member_personal/personal_user_loginlog.htm');
+	$smarty->assign('title','下载/打印报名表 - 会员中心 - '.$_CFG['site_name']);
+	$smarty->assign('user',get_student_info(intval($_SESSION['uid'])));
+	$smarty->display('member_personal/dasai_download.htm');
 }
 unset($smarty);
 ?>

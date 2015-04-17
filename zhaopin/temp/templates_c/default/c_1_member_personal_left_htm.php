@@ -1,4 +1,4 @@
-<?php require_once('D:\amp\www\yy\zhaopin\include\template_lite\plugins\modifier.qishi_url.php'); $this->register_modifier("qishi_url", "tpl_modifier_qishi_url",false);  /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2015-04-16 15:35 ?D1ú±ê×?ê±?? */ ?>
+<?php require_once('D:\amp\www\yy\zhaopin\include\template_lite\plugins\modifier.qishi_url.php'); $this->register_modifier("qishi_url", "tpl_modifier_qishi_url",false);  /* V2.10 Template Lite 4 January 2007  (c) 2005-2007 Mark Dickenson. All rights reserved. Released LGPL. 2015-04-17 12:28 ?D1ú±ê×?ê±?? */ ?>
 <script type="text/javascript">
 $(document).ready(function()
 {
@@ -81,7 +81,8 @@ $(".userliststyle").hover(
 				<ul>
 				<li<?php if ($_GET['act'] == "baoming"): ?> class="h"<?php endif; ?>><a href="dasai.php?act=baoming">我要报名</a></li>
 				<li<?php if ($_GET['act'] == "photo"): ?> class="h"<?php endif; ?>><a href="dasai.php?act=photo">上传照片</a></li>
-				<li<?php if ($_GET['act'] == "dasaixinxi"): ?> class="h"<?php endif; ?>><a href="personal_resume.php?act=resume_list">大赛信息</a></li>
+				<li<?php if ($_GET['act'] == "download"): ?> class="h"<?php endif; ?>><a href="dasai.php?act=download">打印/下载我的报名表</a></li>
+				<li<?php if ($_GET['act'] == "dasaixinxi"): ?> class="h"<?php endif; ?>><a href="/dasai">大赛信息</a></li>
 				</ul>
 			</div>
 		</div>
